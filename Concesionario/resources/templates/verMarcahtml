@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:insert="~{fragments/fragments.html :: headerfiles(title='Ver Hechizo  : :  Hogwarts')}">
+</head>
+<body>
+	<div th:insert="~{fragments/fragments.html :: header (page='spells')}"></div>
+    <div class="container">
+        <div class="page-header mt-2">
+            <h1 th:text="*{spell.spellname}"></h1>
+        </div>
+        <div class="mt-4" th:text="*{spell.spelldescription}"></div>
+        <div class="mt-2" th:unless="${spell.idspell == 0}" th:text="*{spell.type}"></div>
+        <div class="mt-2" th:unless="${spell.idspell == 0}" th:text="*{spell.level}"></div>
+        <div class="mt-2" th:unless="${spell.idspell == 0}" th:text="*{spell.damage}"></div>
+        <div th:if="${spell.islethal}">Letal</div>
+        <div th:unless="${spell.islethal || spell.idspell == 0}">No letal</div> 
+    </div>
+    <footer th:insert="~{fragments/fragments.html :: footer}">
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script></body>
+</html>
